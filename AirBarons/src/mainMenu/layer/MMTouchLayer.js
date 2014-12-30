@@ -79,11 +79,11 @@ var MMTouchLayer = cc.Layer.extend({
     },
     onSettings : function(){
         this.onButtonEffect();
-        // cc.director.runScene(new cc.TransitionFade(1.2, new SettingScene()));
+        cc.director.runScene(new cc.TransitionFade(1.2, new SettingScene()));
     },
     onAbout : function(){
         this.onButtonEffect();
-        // cc.director.runScene(new cc.TransitionFade(1.2, new AboutScene()));
+        cc.director.runScene(new cc.TransitionFade(1.2, new AboutScene()));
     },
     onButtonEffect : function(){
         if (GC.SOUND_ON) {

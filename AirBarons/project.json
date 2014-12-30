@@ -17,6 +17,16 @@
 
         "src/mainMenu/scene/MainMenu.js",
         "src/mainMenu/layer/MMTouchLayer.js",
-        "src/mainMenu/layer/MMBackgroundLayer.js"
+        "src/mainMenu/layer/MMBackgroundLayer.js",
+        "src/mainMenu/layer/MMMainMenuLayer.js",
+
+        "src/setting/scene/Setting.js",
+        "src/setting/layer/STTouchLayer.js",
+        "src/setting/layer/STBackgroundLayer.js",
+
+        "src/about/scene/About.js",
+        "src/about/layer/ABTouchLayer.js",
+        "src/about/layer/ABBackgroundLayer.js"
+
     ]
 }
