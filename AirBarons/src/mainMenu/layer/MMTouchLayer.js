@@ -75,7 +75,7 @@ var MMTouchLayer = cc.Layer.extend({
         cc.audioEngine.stopMusic();
 
 //        场景切换，并且指定切换效果，更多效果，参考引擎包samples/js-tests下的Transitions Test
-        // cc.director.runScene(new cc.TransitionFade(1.2, new GamePlayScene()));
+        cc.director.runScene(new cc.TransitionFade(1.2, new GamePlayScene()));
     },
     onSettings : function(){
         this.onButtonEffect();
