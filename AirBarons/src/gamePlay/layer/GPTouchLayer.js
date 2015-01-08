@@ -29,7 +29,14 @@ var GPTouchLayer = cc.Layer.extend({
         this.initAboutInfo();
         this.initShip();
         this.scheduleUpdate();
-        this.schedule('scoreCounter', 1);
+        this.schedule(this.scoreCounter, 1);
+
+        //        子弹敌人等预备
+        BulletSprite.preSet();
+        EnemySprite.preSet();
+        SparkEffectSprite.preSet();
+        ExplosionSprite.preSet();
+
     },
     initGC: function(){
         GC.LIFE = 4;
@@ -190,7 +197,7 @@ var GPTouchLayer = cc.Layer.extend({
     onGameOver: function(){//游戏结束
         cc.audioEngine.stopMusic();
         cc.audioEngine.stopAllEffects();
-        // cc.director.runScene(new cc.TransitionFade(1.2, new GameOverScene()));
+        cc.director.runScene(new cc.TransitionFade(1.2, new GameOverScene()));
     },
     scoreCounter: function(){
         if(this._state == STATE_PLAYING){

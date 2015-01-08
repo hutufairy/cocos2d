@@ -65,8 +65,8 @@ BulletSprite.create = function(bullteSpeed, weaponType, attackMode, zOrder, mode
 
 BulletSprite.preSet = function(){
     for(var i = 0; i < 10; i++){
-        var b1 = BulletSprite.create(GC.BULLEL_SPEED.SHIP, 'W1.png', GC.ENEMY_ATTACK_MODE.NORMAL, 3000, GC.UNIT_TAG.PLAYER_BULLET);
-        var b2 = BulletSprite.create(GC.BULLEL_SPEED.ENEMY, 'W2.png', GC.ENEMY_ATTACK_MODE.NORMAL, 3000, GC.UNIT_TAG.ENEMY_BULLET);
+        var b1 = BulletSprite.create(GC.BULLET_SPEED.SHIP, 'W1.png', GC.ENEMY_ATTACK_MODE.NORMAL, 3000, GC.UNIT_TAG.PLAYER_BULLET);
+        var b2 = BulletSprite.create(GC.BULLET_SPEED.ENEMY, 'W2.png', GC.ENEMY_ATTACK_MODE.NORMAL, 3000, GC.UNIT_TAG.ENEMY_BULLET);
         b1.destroy();
         b2.destroy();
     }
