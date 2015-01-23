@@ -85,13 +85,13 @@ var AnimationLayer = cc.Layer.extend({
         this.jumpUpAction.retain();
 
         frames = [];
-        for(var i = 0; i < 8; i++){
+        for(var i = 0; i < 2; i++){
             var str = "runnerJumpDown" + i + ".png";
             var frame = cc.spriteFrameCache.getSpriteFrame(str);
             frames.push(frame);
         }
 
-        animation = new cc.Animation(frames, 0.1);
+        animation = new cc.Animation(frames, 0.4);
         this.jumpDownAction = new cc.Animate(animation);        
         this.jumpDownAction.retain();
     },
@@ -112,7 +112,7 @@ var AnimationLayer = cc.Layer.extend({
     onTouchEnded: function(touch, event){
         var pos = touch.getLocation();
         var target = event.getCurrentTarget();
-        var dir = target.recognizer.beginPoint(pos.x, pos.y);cc.log(dir)
+        var dir = target.recognizer.endPoint(pos.x, pos.y);
         switch(dir){
             case 'up':
                 target.jump();
@@ -128,7 +128,7 @@ var AnimationLayer = cc.Layer.extend({
                 this.switchAction(RunnerStat.jumpDown, this.jumpDownAction);
             }
         }else if(this.stat == RunnerStat.jumpDown){
-            if(vel.y == 0){
+            if(vel.y  < 0.1){
                 this.switchAction(RunnerStat.running, this.runningAction);
             }
         }
@@ -136,6 +136,7 @@ var AnimationLayer = cc.Layer.extend({
     jump: function(){
         cc.log('jump');
         if(this.stat == RunnerStat.running){
+            cc.audioEngine.playEffect(res.jump_mp3);
             this.body.applyImpulse(cp.v(0, 250), cp.v(0, 0));
             this.switchAction(RunnerStat.jumpUp, this.jumpUpAction);
         }

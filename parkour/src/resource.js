@@ -12,7 +12,10 @@ var res = {
     map00_tmx: "res/map00.tmx",
     map01_tmx: "res/map01.tmx",
     background_png :"res/background.png",
-    background_plist : "res/background.plist"  
+    background_plist : "res/background.plist",
+    background_mp3 : "res/background.mp3",
+    jump_mp3 : "res/jump.mp3",
+    pickup_coin_mp3 : "res/pickup_coin.mp3"
 };
 
 var g_resources = [];

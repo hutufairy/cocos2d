@@ -25,18 +25,19 @@ SimpleRecognizer.prototype.movePoint = function(x, y) {
 
 // be called in onTouchEnded
 SimpleRecognizer.prototype.endPoint = function(x, y) {
-    this.points.push(new Point(x, y));cc.log(this.points)
+    this.points.push(new Point(x, y));
     if (this.points.length < 3) {
         return "error";
     }
+
     if (this.result == "not support") {
         return;
     }
 
     var newRtn = "";
     var len = this.points.length;
-    var dx = this.points[len - 1].X - this.points[len - 2].X;
-    var dy = this.points[len - 1].Y - this.points[len - 2].Y;
+    var dx = x - this.points[0].X;
+    var dy = y - this.points[0].Y;
 
     if (Math.abs(dx) > Math.abs(dy)) {
         if (dx > 0) {
@@ -55,11 +56,7 @@ SimpleRecognizer.prototype.endPoint = function(x, y) {
     // first set result
     if (this.result == "") {
         this.result = newRtn;
-        return;
-    }
-
-    // if diretcory change, not support Recongnizer
-    if (this.result != newRtn) {
+    }else if (this.result != newRtn) {// if diretcory change, not support Recongnizer
         this.result = "not support";
     }
 
